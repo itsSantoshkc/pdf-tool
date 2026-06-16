@@ -6,11 +6,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
-interface RenderContext {
-  canvasContext: CanvasRenderingContext2D;
-  viewport: pdfjsLib.PageViewport;
-}
-
 export async function loadPdfDocument(bytes: Uint8Array) {
   const cloned = new Uint8Array(bytes);
   return pdfjsLib.getDocument({ data: cloned }).promise;
